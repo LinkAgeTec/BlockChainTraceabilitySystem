@@ -22,6 +22,7 @@
 
 
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -46,6 +47,18 @@
             <scope>true</scope>
         </dependency>
 
+        <!-- Spring Security 权限验证依赖包 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 
@@ -59,9 +72,6 @@
                     <fork>true</fork>
                 </configuration>
             </plugin>
-
-
-
         </plugins>
     </build>
 
