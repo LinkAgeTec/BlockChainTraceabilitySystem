@@ -4,7 +4,7 @@ import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
-* @Description:    用于密码加密，使用MD5加密方式加密，但是这种方式现在已经不足够安全，建议使用BCRY加密方式
+* @Description:    用于密码加密，使用MD5加密方式加密，但是这种方式现在已经不足够安全，建议使用BCRY加密方式,但是本人不会用
 * @Author:         ACtangle
 * @CreateDate:     2018/11/22 11:44
 * @UpdateUser:     ACtangle
