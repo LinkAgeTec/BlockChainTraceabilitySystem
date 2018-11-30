@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.org.linkage.mapper.SysTemplateMapper" >
+  <resultMap id="BaseResultMap" type="cn.org.linkage.entity.SysTemplate" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="ttitle" property="ttitle" jdbcType="VARCHAR" />
+    <result column="tproperty" property="tproperty" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="pcid" property="pcid" jdbcType="INTEGER" />
+    <result column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, ttitle, tproperty, status, pcid, fid, time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from template
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from template
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.org.linkage.entity.SysTemplate" >
+    insert into template (id, ttitle, tproperty, 
+      status, pcid, fid, 
+      time)
+    values (#{id,jdbcType=INTEGER}, #{ttitle,jdbcType=VARCHAR}, #{tproperty,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{pcid,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, 
+      #{time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.org.linkage.entity.SysTemplate" >
+    insert into template
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ttitle != null" >
+        ttitle,
+      </if>
+      <if test="tproperty != null" >
+        tproperty,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="pcid != null" >
+        pcid,
+      </if>
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ttitle != null" >
+        #{ttitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tproperty != null" >
+        #{tproperty,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="pcid != null" >
+        #{pcid,jdbcType=INTEGER},
+      </if>
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.org.linkage.entity.SysTemplate" >
+    update template
+    <set >
+      <if test="ttitle != null" >
+        ttitle = #{ttitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tproperty != null" >
+        tproperty = #{tproperty,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="pcid != null" >
+        pcid = #{pcid,jdbcType=INTEGER},
+      </if>
+      <if test="fid != null" >
+        fid = #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.org.linkage.entity.SysTemplate" >
+    update template
+    set ttitle = #{ttitle,jdbcType=VARCHAR},
+      tproperty = #{tproperty,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      pcid = #{pcid,jdbcType=INTEGER},
+      fid = #{fid,jdbcType=INTEGER},
+      time = #{time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
