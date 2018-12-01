@@ -1,4 +1,4 @@
-package com.mmall.exception;
+package cn.org.linkage.exception;
 
 /**
 * @Description:    java类作用描述

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
-* @Description:    接口返回的数据类型类
+* @Description:    接口返回的json封装类
 * @Author:         ACtangle
 * @CreateDate:     2018/11/29 11:25
 * @UpdateUser:     ACtangle

@@ -1,7 +1,7 @@
 package cn.org.linkage.common;
 
-import com.mmall.exception.ParamException;
-import com.mmall.exception.PermissionException;
+import cn.org.linkage.exception.ParamException;
+import cn.org.linkage.exception.PermissionException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;

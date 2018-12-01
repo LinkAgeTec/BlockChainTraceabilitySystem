@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/BlockChainTraceabilitySystem.iml" filepath="$PROJECT_DIR$/.idea/BlockChainTraceabilitySystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BlockChainTraceabilitySystem/LinkAgeTec.iml" filepath="$PROJECT_DIR$/BlockChainTraceabilitySystem/LinkAgeTec.iml" />
     </modules>
   </component>
 </project>

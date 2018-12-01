@@ -6,6 +6,17 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+/**
+* @Description:    上下文检索工具
+* @Author:         ACtangle
+* @CreateDate:     2018/11/30 15:52
+* @UpdateUser:     ACtangle
+* @UpdateDate:     2018/11/30 15:52
+* @UpdateRemark:   修改内容
+* @Version:        1.0
+*/
+
+
 @Component("applicationContextHelper")
 public class ApplicationContextHelper implements ApplicationContextAware {
 

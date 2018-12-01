@@ -18,7 +18,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public int insert(SysAdmin record) {
-        return 0;
+        return mapper.insert(record);
     }
 
     @Override

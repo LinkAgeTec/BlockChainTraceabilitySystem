@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="origin@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="origin">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="company"/>
+    <schema id="4" parent="1" name="fkbooks"/>
+    <schema id="5" parent="1" name="hrm_db"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="melon"/>
+    <schema id="8" parent="1" name="mybatis"/>
+    <schema id="9" parent="1" name="myshop"/>
+    <schema id="10" parent="1" name="mysql"/>
+    <schema id="11" parent="1" name="performance_schema"/>
+    <schema id="12" parent="1" name="sys"/>
+    <schema id="13" parent="1" name="taotao"/>
+    <schema id="14" parent="1" name="test"/>
+    <schema id="15" parent="1" name="test1"/>
+    <table id="16" parent="2" name="admin"/>
+    <table id="17" parent="2" name="batch"/>
+    <table id="18" parent="2" name="data"/>
+    <table id="19" parent="2" name="factory"/>
+    <table id="20" parent="2" name="product"/>
+    <table id="21" parent="2" name="productchain"/>
+    <table id="22" parent="2" name="template"/>
+    <column id="23" parent="16" name="id">
+      <Position>1</Position>
+      <Comment>管理员id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="16" name="adminname">
+      <Position>2</Position>
+      <Comment>管理员帐号</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="25" parent="16" name="adminpassword">
+      <Position>3</Position>
+      <Comment>管理员密码</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="26" parent="16" name="level">
+      <Position>4</Position>
+      <Comment>管理员等级；1:系统管理员,2:超级管理员</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="27" parent="16" name="time">
+      <Position>5</Position>
+      <Comment>管理员创建时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="28" parent="16" name="remark">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="29" parent="16" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="17" name="batch_id">
+      <Position>1</Position>
+      <Comment>批次号</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="31" parent="17" name="pcid">
+      <Position>2</Position>
+      <Comment>生产链id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="17" name="time">
+      <Position>3</Position>
+      <Comment>批次创建时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="33" parent="17" name="fk_batch_pcid">
+      <ColNames>pcid</ColNames>
+    </index>
+    <key id="34" parent="17" name="PRIMARY">
+      <ColNames>batch_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="35" parent="17" name="fk_batch_pcid">
+      <ColNames>pcid</ColNames>
+      <RefSchemaName>origin</RefSchemaName>
+      <RefTableName>productchain</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="36" parent="18" name="id">
+      <Position>1</Position>
+      <Comment>数据id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="37" parent="18" name="fid">
+      <Position>2</Position>
+      <Comment>工厂id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="18" name="bid">
+      <Position>3</Position>
+      <Comment>批次号</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="18" name="status">
+      <Position>4</Position>
+      <Comment>数据审核状态；0:无效,1:成功,2:待审核</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="40" parent="18" name="time">
+      <Position>5</Position>
+      <Comment>数据创建时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="41" parent="18" name="fk_data_bid">
+      <ColNames>bid</ColNames>
+    </index>
+    <index id="42" parent="18" name="fk_data_fid">
+      <ColNames>fid</ColNames>
+    </index>
+    <key id="43" parent="18" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="44" parent="18" name="fk_data_fid">
+      <ColNames>fid</ColNames>
+      <RefSchemaName>origin</RefSchemaName>
+      <RefTableName>factory</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="45" parent="18" name="fk_data_bid">
+      <ColNames>bid</ColNames>
+      <RefSchemaName>origin</RefSchemaName>
+      <RefTableName>batch</RefTableName>
+      <RefColNames>batch_id</RefColNames>
+    </foreign-key>
+    <column id="46" parent="19" name="id">
+      <Position>1</Position>
+      <Comment>工厂id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="19" name="fac_username">
+      <Position>2</Position>
+      <Comment>工厂帐号</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="48" parent="19" name="fac_password">
+      <Position>3</Position>
+      <Comment>工厂密码</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="49" parent="19" name="fac_msg">
+      <Position>4</Position>
+      <Comment>工厂信息</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="50" parent="19" name="time">
+      <Position>5</Position>
+      <Comment>工厂帐号创建时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="51" parent="19" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="20" name="id">
+      <Position>1</Position>
+      <Comment>产品id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="53" parent="20" name="prucut_name">
+      <Position>2</Position>
+      <Comment>产品名称</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="54" parent="20" name="product_msg">
+      <Position>3</Position>
+      <Comment>产品信息</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="55" parent="20" name="time">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="56" parent="20" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="57" parent="21" name="id">
+      <Position>1</Position>
+      <Comment>生产链id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="21" name="pid">
+      <Position>2</Position>
+      <Comment>产品id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="21" name="fid">
+      <Position>3</Position>
+      <Comment>工厂id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="60" parent="21" name="fk_productchain_fid">
+      <ColNames>fid</ColNames>
+    </index>
+    <index id="61" parent="21" name="fk_productchain_pid">
+      <ColNames>pid</ColNames>
+    </index>
+    <key id="62" parent="21" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="63" parent="21" name="fk_productchain_pid">
+      <ColNames>pid</ColNames>
+      <RefSchemaName>origin</RefSchemaName>
+      <RefTableName>product</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="64" parent="21" name="fk_productchain_fid">
+      <ColNames>fid</ColNames>
+      <RefSchemaName>origin</RefSchemaName>
+      <RefTableName>factory</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="65" parent="22" name="id">
+      <Position>1</Position>
+      <Comment>模板id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="66" parent="22" name="ttitle">
+      <Position>2</Position>
+      <Comment>标题</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="67" parent="22" name="tproperty">
+      <Position>3</Position>
+      <Comment>属性</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="68" parent="22" name="status">
+      <Position>4</Position>
+      <Comment>模板审核状态；0:无效,1:成功,2:待审核</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="69" parent="22" name="pcid">
+      <Position>5</Position>
+      <Comment>生产链id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="22" name="fid">
+      <Position>6</Position>
+      <Comment>工厂id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="22" name="time">
+      <Position>7</Position>
+      <Comment>模板创建时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="72" parent="22" name="fk_template_fid">
+      <ColNames>fid</ColNames>
+    </index>
+    <index id="73" parent="22" name="fk_template_pcid">
+      <ColNames>pcid</ColNames>
+    </index>
+    <key id="74" parent="22" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="75" parent="22" name="fk_template_pcid">
+      <ColNames>pcid</ColNames>
+      <RefSchemaName>origin</RefSchemaName>
+      <RefTableName>productchain</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="76" parent="22" name="fk_template_fid">
+      <ColNames>fid</ColNames>
+      <RefSchemaName>origin</RefSchemaName>
+      <RefTableName>factory</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

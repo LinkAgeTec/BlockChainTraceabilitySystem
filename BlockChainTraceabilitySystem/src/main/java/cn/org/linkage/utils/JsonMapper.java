@@ -8,6 +8,17 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.ser.impl.SimpleFilterProvider;
 import org.codehaus.jackson.type.TypeReference;
 
+/**
+* @Description:    json与Object互转工具
+* @Author:         ACtangle
+* @CreateDate:     2018/11/30 15:55
+* @UpdateUser:     ACtangle
+* @UpdateDate:     2018/11/30 15:55
+* @UpdateRemark:   修改内容
+* @Version:        1.0
+*/
+
+
 @Slf4j
 public class JsonMapper {
     private static ObjectMapper objectMapper = new ObjectMapper();
